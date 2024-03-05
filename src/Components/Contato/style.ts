@@ -12,7 +12,7 @@ export const CardContato = styled.div `
     border-radius: 48px;
 `
 export const CardPrincipal = styled.div `
-    margin-top: 20px;
+    margin: 20px 10px 10px 10px;
     background-color: #161923;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,6 @@ export const TextoCard = styled(Texto)`
     padding-left: 8px;
 `
 export const TituloCard = styled(Titulo)`
-
     background-color: #161923;
     padding-left: 8px;
     margin-bottom: 10px;
@@ -41,6 +40,11 @@ export const BotaoExpandir = styled(Botao)`
     i {
         background-color: #161923;
     }
+`
+export const BotaoCard = styled(Botao)`
+    width: 40%;
+    margin-left: 28px;
+    margin-bottom: 12px;
 `
 
 

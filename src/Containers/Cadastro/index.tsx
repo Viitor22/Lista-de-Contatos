@@ -1,9 +1,12 @@
 import Form from "../../Components/Formulário"
+import { Painel } from "./styles"
 
 
 const Cadastro = () => {
     return (
-        <Form></Form>
+        <Painel>
+            <Form></Form>
+        </Painel>
     )
 }
 
