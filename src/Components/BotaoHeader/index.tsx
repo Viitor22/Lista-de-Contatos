@@ -4,31 +4,19 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducer } from '../../Store/index.ts';
 import { buscar } from '../../Store/reducers/busca.ts';
-import { ordemAlfabetica, removerTUDO, setOrdenar } from '../../Store/reducers/contato.ts';
+import { removerTUDO, setOrdenar } from '../../Store/reducers/contato.ts';
 
 const NavHeader = () => {
     const dispatch = useDispatch()
     const {termo} = useSelector((state: RootReducer) => state.busca);
-    const { itens, ordenar} = useSelector((state: RootReducer) => state.contato)
+    const { ordenar} = useSelector((state: RootReducer) => state.contato)
 
     const [BotaoPesquisaAtivo, setBotaoPesquisaAtivo] = useState(false);
     const [BotaoEditarAtivo, setBotaoEditarAtivo] = useState(false);
-    const [BotaoOrdenarAtivo, setBotaoOrdenarAtivo] = useState(false);
     const navigate = useNavigate();
-
-    ordenar === BotaoOrdenarAtivo;
 
     const RotaCadastro = () => {
         navigate('/novo')
-    }
-
-    const filtraContatos = () => {
-        return itens.filter(item => item.nome.toLowerCase().search(termo.toLowerCase()) >= 0)
-    }
-
-    const nomes = () => {
-        let nomes = filtraContatos().map((c)=>(c.nome.toLowerCase()))
-        return nomes.sort()
     }
 
     return (
@@ -85,7 +73,7 @@ const NavHeader = () => {
                     <>
                     <S.Arrow></S.Arrow>
                     <S.MenuEditar>
-                        <a onClick={() => {dispatch(ordemAlfabetica(nomes())), dispatch(setOrdenar(ordenar)), setBotaoOrdenarAtivo(!BotaoOrdenarAtivo)}}>Organizar <i className="bi bi-alphabet-uppercase"></i></a>
+                        <a onClick={() => {dispatch(setOrdenar(!ordenar))}}>Organizar <i className="bi bi-alphabet-uppercase"></i></a>
                         <a onClick={() => dispatch(removerTUDO())}>Deletar Lista <i className="bi bi-trash"></i></a>
                         <a href='https://github.com/Viitor22/Lista-de-Contatos'>Compartilhar <i className="bi bi-share"></i></a>
                     </S.MenuEditar>

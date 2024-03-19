@@ -57,19 +57,12 @@ const contatoSlice = createSlice({
             }
         },
 
-        ordemAlfabetica: (state, action: PayloadAction<string[]>) => {
-            for (let i = 0; i < action.payload.length; i++) {
-                const indexContato = state.itens.findIndex((c) => c.nome === action.payload[i])
-                state.itens[indexContato]
-            }
-        },
-
         setOrdenar: (state, action: PayloadAction<boolean>) => {
-            state.ordenar == action.payload
+            state.ordenar = action.payload
         }
     }
 })
 
-export const { remover, editar, cadastrar, removerTUDO, ordemAlfabetica, setOrdenar} = contatoSlice.actions
+export const { remover, editar, cadastrar, removerTUDO, setOrdenar} = contatoSlice.actions
 
 export default contatoSlice.reducer

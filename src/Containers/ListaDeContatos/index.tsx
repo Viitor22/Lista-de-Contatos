@@ -2,13 +2,11 @@ import Contato from "../../Components/Contato"
 import { Titulo } from "../../Styles"
 import { MainContainer } from "./styles"
 
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import { RootReducer } from "../../Store";
-import { ordemAlfabetica } from "../../Store/reducers/contato";
 
 
 const ListaDeContato = () => {
-    const dispatch = useDispatch()
     const {itens, ordenar} = useSelector((state: RootReducer) => state.contato)
     const {termo} = useSelector((state: RootReducer) => state.busca)
 
@@ -16,13 +14,17 @@ const ListaDeContato = () => {
         return itens.filter(item => item.nome.toLowerCase().search(termo.toLowerCase()) >= 0)
     }
 
+    const contatosOrdenados = filtraContatos().sort((a, b)=> a.nome.localeCompare(b.nome));
+
+    const contatosFltrados = contatosOrdenados;
+
     return(
         <MainContainer>
             <Titulo>Contatos:</Titulo>
             {ordenar ? (
             <>
             <ul>
-                {filtraContatos().map((c)=>(
+                {contatosFltrados.map((c)=>(
                     <li key={c.id}>
                         <Contato 
                         id={c.id}
