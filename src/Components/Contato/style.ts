@@ -46,5 +46,19 @@ export const BotaoCard = styled(Botao)`
     margin-left: 28px;
     margin-bottom: 12px;
 `
+export const Input = styled.input`
+    background-color: #161923;
+    width: 300px;
+    height: 50px;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+    outline: none;
+    color: rgba(166,166,166);
+    font-size 1rem;
+    border: 1px solid #040B18;
+    border-radius: 48px;
 
-
+    &:nth-child(1){
+        margin-top: 1rem;
+    }
+`
